@@ -2,11 +2,11 @@
 
 function myNamespacesAutoloader($className)
 {
-	$filePath = $className . '.class.php';
-    
-	echo $filePath;
-	echo '<br>';
+	$filePath = $_SERVER['DOCUMENT_ROOT'] . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.class.php';
 
+	// $filePath = $className . '.class.php';
+    
+    
 	if (file_exists($filePath))  {
 		include "$filePath";
 	} else {
